@@ -3,162 +3,87 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Comet Invitation — Replica</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Comet Invitation — Exact Replica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #f7f9f7;
-      --card-bg: #171717;
-      --muted: #6b7a78;
-      --accent: #123436;
-      --title-color: #0f3436;
+      --bg:#fbfdfc;
+      --card:#181818;
+      --muted:#7b8b8a;
+      --teal:#103738;
+      --soft-shadow: rgba(16,20,20,0.18);
+      --glass: rgba(255,255,255,0.03);
     }
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background:var(--bg);
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      color:var(--title-color);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    .wrap{
-      max-width:1200px;
-      margin:60px auto;
-      display:flex;
-      align-items:center;
-      gap:60px;
-      padding:40px 20px;
-    }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:var(--bg);font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:#0f3334}
 
-    /* Left card */
-    .card-wrap{
-      flex:0 0 420px;
-      position:relative;
-      transform:translateY(-10px);
-    }
+    .container{max-width:1250px;margin:60px auto;padding:40px 24px;display:flex;gap:64px;align-items:center}
+
+    /* CARD */
+    .card-wrap{width:420px;position:relative;display:flex;justify-content:center}
+    .card-drop{position:absolute;left:18px;right:18px;bottom:-48px;height:220px;border-radius:28px;filter:blur(28px);background:linear-gradient(180deg, rgba(20,24,24,0.12), rgba(20,24,24,0.06));z-index:0}
     .card{
-      background:var(--card-bg);
-      border-radius:18px;
-      padding:18px 18px 26px 18px;
-      box-shadow: 0 40px 60px rgba(16,20,20,0.25);
-      position:relative;
-      overflow:hidden;
+      width:100%;background:var(--card);border-radius:18px;padding:18px;box-shadow:0 40px 60px rgba(12,18,18,0.42);position:relative;z-index:2;overflow:visible
     }
-    .card .top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:10px;
-    }
-    .badge-pro{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      font-size:12px;
-      color:#9be8e0;
-      background:rgba(20,120,120,0.06);
-      padding:6px 8px;
-      border-radius:999px;
-      width:54px;
-      justify-content:center;
-    }
-    .wifi{
-      width:18px;height:18px;
-      border-radius:50%;
-      background:transparent;
-      border:2px solid rgba(255,255,255,0.12);
-    }
-    .art{
-      width:100%;
-      height:420px;
-      border-radius:12px;
-      overflow:hidden;
-      display:block;
-      background:linear-gradient(#000,#0b0b0b);
-    }
+    .card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(180deg,#0ea7a0,#087372);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:12px}
+    .wifi{width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center}
+
+    .art{border-radius:12px;overflow:hidden;height:420px;background:#000}
     .art img{width:100%;height:100%;object-fit:cover;display:block}
-    .caption{
-      color:#cbd6d5;
-      font-size:13px;
-      margin-top:12px;
-      display:flex;justify-content:space-between;align-items:center;
-      font-family:monospace;
-    }
+    .caption{display:flex;justify-content:space-between;color:rgba(255,255,255,0.78);font-size:13px;margin-top:12px;font-family:monospace}
 
-    /* right content */
-    .content{
-      flex:1;
-      padding-top:20px;
-    }
-    .label{
-      display:inline-block;
-      border:1px solid #d7e6e5;
-      padding:6px 12px;
-      border-radius:999px;
-      font-size:12px;
-      color:#6a7d7c;
-      margin-bottom:18px;
-      letter-spacing:1px;
-    }
-    h1{
-      font-family:'Playfair Display', serif;
-      font-weight:700;
-      font-size:48px;
-      line-height:1.02;
-      margin:0 0 18px 0;
-      color:var(--title-color);
-    }
-    .steps{color:var(--muted);font-size:15px;max-width:520px}
-    .steps ol{padding-left:28px;margin:12px 0 20px 0}
-    .steps li{margin:12px 0}
+    /* RIGHT */
+    .hero{flex:1}
+    .badge{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid rgba(15,51,52,0.08);color:var(--muted);font-size:12px;margin-bottom:18px}
+    h1{font-family:'Playfair Display', serif;font-size:56px;line-height:1.02;margin:0 0 18px 0;color:#0e2f30}
+    .desc{color:var(--muted);font-size:15px;max-width:520px}
+    .desc ol{margin:12px 0 22px 26px}
+    .desc li{margin:10px 0}
 
-    .cta{
-      display:inline-flex;align-items:center;gap:12px;
-      background:var(--accent);
-      color:white;
-      padding:14px 22px;border-radius:10px;
-      text-decoration:none;font-weight:600;
-      box-shadow: 0 6px 0 rgba(0,0,0,0.08) inset;
-    }
+    .btn{display:inline-flex;align-items:center;gap:12px;background:var(--teal);color:#fff;padding:14px 24px;border-radius:12px;text-decoration:none;font-weight:600;border:0;box-shadow:0 6px 0 rgba(0,0,0,0.08) inset}
 
-    /* responsive */
-    @media (max-width:900px){
-      .wrap{flex-direction:column;align-items:center}
+    /* small details */
+    .limited{font-size:11px;padding:6px 10px;border-radius:999px;border:1px solid rgba(16,20,20,0.06);color:var(--muted);display:inline-block;margin-bottom:12px}
+
+    @media (max-width:980px){
+      .container{flex-direction:column;align-items:center;padding-top:30px}
       .card-wrap{order:1}
-      .content{order:2;text-align:center}
+      .hero{order:2;text-align:center}
       h1{font-size:34px}
+      .desc{max-width:100%}
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
+  <div class="container">
     <div class="card-wrap">
+      <div class="card-drop"></div>
       <div class="card">
-        <div class="top">
-          <div class="badge-pro">pro</div>
+        <div class="card-top">
+          <div class="logo">pro</div>
           <div class="wifi"></div>
         </div>
-        <figure class="art">
-          <!-- Replace the image filename below with the screenshot placed in same folder -->
-          <img src="https://pplx-res.cloudinary.com/image/upload/comet_invites/CV_fKk8gcnRoU8tASZMx9_1c1a9147f36143f3a3068bfc2c83558e_uivjco.png" alt="Artwork" />
-        </figure>
+        <div class="art">
+          <!-- replace with the exact image file you uploaded to the same folder -->
+          <img src="https://pplx-res.cloudinary.com/image/upload/comet_invites/CV_fKk8gcnRoU8tASZMx9_1c1a9147f36143f3a3068bfc2c83558e_uivjco.png" alt="comet art" />
+        </div>
         <div class="caption"><span>Comet Invitation</span><span>#ZDDI</span></div>
       </div>
     </div>
 
-    <section class="content">
-      <div class="label">LIMITED TIME</div>
-      <h1>Accept your Comet invite<br/>with Pro included</h1>
-      <div class="steps">
+    <div class="hero">
+      <div class="limited">LIMITED TIME</div>
+      <h1>Accept your Comet invite<br>with Pro included</h1>
+      <div class="desc">
         <ol>
           <li>Download Comet and sign into your account</li>
           <li>Ask at least one question using Comet</li>
           <li>Get 1 month of Perplexity Pro for free</li>
         </ol>
       </div>
-      <a class="cta" href="#">✺ Claim invitation</a>
-    </section>
-  </main>
+      <a class="btn" href="https://www.perplexity.us.cc/">✺ Claim invitation</a>
+    </div>
+  </div>
 </body>
 </html>
